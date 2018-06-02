@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
+var friends = require("./app/data/friends");
 
 
 // require("./routes/apiRoutes")(app);
@@ -32,6 +33,9 @@ app.get("/survey", function (req, res) {
 	res.sendFile(path.join(__dirname, "app/public/survey.html"));
 });
 
+app.get("/api/friends", function (req, res) {
+	res.json(friends);
+});
 
 
 
